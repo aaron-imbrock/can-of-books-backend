@@ -27,6 +27,15 @@ db.once('open', function() {
   console.log('Mongoose is Connected');
 });
 
+app.get('/books', async (request, response, next) => {
+  try {
+    let allBooks = await Book.find({});
+    response.status(200).send(allBooks);
+  } catch (error) {
+    next(error);
+  }
+});
+
 app.get('*', (request, response) => {
   response.status(404).send('Not available');
 });
