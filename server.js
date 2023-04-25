@@ -36,6 +36,22 @@ app.get('/books', async (request, response, next) => {
   }
 });
 
+app.post('/books', postBook);
+
+async function postBook(request, response, next){
+  console.log(request.body);
+  try {
+    let bookData  = request.body;
+    let createdBook = await Book.create(bookData);
+
+    response.status(200).send(createdBook);
+  } catch (error) {
+    console.error(error);
+    // next(error);
+    response.status(500).send('error creating book');
+  }
+}
+
 app.get('*', (request, response) => {
   response.status(404).send('Not available');
 });
