@@ -1,24 +1,87 @@
 # Can of Books
 
-**Author**: Team Member Names Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Author**: (alphabetically) Aaron Imbrock and Cisco Sanchez
+**Version**: 1.9
+
+## Check It Out
+
+[Can Of Books](https://can-of-books99.netlify.app/)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
-## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+The CAN-OF-BOOKS-BACKEND project implements the REST API for [can-of-books-frontend](https://github.com/aaron-imbrock/can-of-books-frontend). It's built with Node.js, Express, and integrated with MongoDB for data storage needs.
+
+Can of Books Backend provides an API for the managed list of books we've read, and intend to read in the near future.
+
+## To build this yourself
+
+### MongoDB Atlas
+
+Create a cluster on [MongoDB Atlas](https://www.mongodb.com/atlas). When creating a cluster, the option "Shared" is free, and adequate for our needs.
+
+### Clone this Repo
+
+```bash
+git clone git@github.com:aaron-imbrock/can-of-books-backend.git
+cd can-of-books-backend
+cp .env.sample .env
+```
+
+### Update dotenv
+
+Update the `DB_URL` in the `.env` file with the link to your DB on MongoDB Atlas.
+
+### NPM install and run
+
+```bash
+cd can-of-books-backend
+npm install
+```
+
+### Seed your database
+
+Review `seed.js` and update as you wish. We will use this to seed data to the database.
+From the command line run:
+
+```bash
+$ node seed.js
+Book1 was created...
+Book2 was created...
+Book3 was created...
+```
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
-## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
+The production backend is hosted on Render.com - https://can-of-books-backend-drf3.onrender.com
+The front-end is currently written in React while the backend uses Node.js and Express, with data storage provided by MongoDB.
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+https://can-of-books-backend-drf3.onrender.com/books
+![Web Request Response Cycle](./static/WRRC_CanOfBooks.png)
 
 ## Estimates
-<!-- See below -->
+
+```bash
+Name of feature: Set up repositories, logins, and Mongo Atlas.
+Estimate of time needed to complete: 1 hour
+Start time: 2pm
+Finish time: 3pm
+```
+
+```bash
+Name of feature: view the list of books on front-end
+Estimate of time needed to complete: 2 1/2 hours
+Start time: 3pm
+Finish time: 6pm
+```
+
+```bash
+Name of feature: 
+Estimate of time needed to complete: 
+Start time: 
+Finish time: 
+```
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
+- Cisco Sanchez [GITHUB](https://github.com/c0d3cisco)
+- Aaron Imbrock [GITHUB](https://github.com/aaron-imbrock)
