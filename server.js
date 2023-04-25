@@ -8,14 +8,16 @@ const mongoose = require('mongoose');
 // TODO: Build a Mongoose 'Book' schema with valid keys for `title`, `description`, and `status`. 
 const Book = require('./models/book');
 const app = express();
+
 app.use(cors());
+app.use(express.json());
 
 const PORT = process.env.PORT || 3002;
 
 app.get('/test', (request, response) => {
-
+  
   response.send('test request received')
-
+  
 })
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
@@ -35,6 +37,23 @@ app.get('/books', async (request, response, next) => {
     next(error);
   }
 });
+
+app.post('/books', postBook);
+
+async function postBook(request, response, next){
+  // console.log(request.body);
+  try {
+    let bookData  = request.body;
+    let createdBook = await Book.create(bookData);
+
+    response.status(200).send(createdBook);
+  } catch (error) {
+    console.error(error);
+    // next(error);
+    // TODO: Create function that does error checking and supplies a status code.
+    response.status(400).send('error creating book');
+  }
+}
 
 app.get('*', (request, response) => {
   response.status(404).send('Not available');

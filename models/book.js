@@ -13,5 +13,6 @@ const bookSchema = new Schema({
 });
 
 const Book = mongoose.model('book', bookSchema);
+// console.log("book.js - " + Book);
 
 module.exports = Book;
