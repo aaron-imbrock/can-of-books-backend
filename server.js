@@ -70,7 +70,25 @@ async function deleteBook (request, response){
     response.status(500).send(`Error deleting ${id}`);
 
   }
+}
 
+// *** UPDATE
+app.put('/books/:id', updateBook);
+async function updateBook (request, response, next) {
+  try {
+    // TODO: Grab the id from the request.parmas and data from the request.body
+    let id = request.params.id;
+    let bookData = request.body;
+    // TODO: use the Model method of fineByIdAndUpdate and pass in the id, data, options obj
+    // ! 3 args
+    // ! id, data, options object -> { new: true, overwrite: true}
+    updateOptions = { new: true, overwrite: true };
+    let updatedBook = await Book.findByIdAndUpdate(id, bookData, updateOptions );
+    response.state(200).send(updatedBook);
+  } catch (error) {
+    console.error(error);
+    response.status(500).send(`Error updating ${id}`);
+  }
 }
 
 app.get('*', (request, response) => {
