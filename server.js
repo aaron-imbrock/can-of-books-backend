@@ -7,6 +7,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 // TODO: Build a Mongoose 'Book' schema with valid keys for `title`, `description`, and `status`. 
 const Book = require('./models/book');
+const e = require('express');
 const app = express();
 
 app.use(cors());
@@ -53,6 +54,23 @@ async function postBook(request, response, next){
     // TODO: Create function that does error checking and supplies a status code.
     response.status(400).send('error creating book');
   }
+}
+
+app.delete('/books/:id', deleteBook);
+async function deleteBook (request, response){
+  try {
+    let id = request.params.id;
+    console.log(id);
+    let deletedBook = await Book.findByIdAndDelete(id);
+    
+    response.status(200).send(`${id} deleted`);
+  } catch (error) {
+
+    console.error(error);
+    response.status(500).send(`Error deleting ${id}`);
+
+  }
+
 }
 
 app.get('*', (request, response) => {
