@@ -56,7 +56,7 @@ The production backend is hosted on Render.com - https://can-of-books-backend-dr
 The front-end is currently written in React while the backend uses Node.js and Express, with data storage provided by MongoDB.
 
 https://can-of-books-backend-drf3.onrender.com/books
-![Web Request Response Cycle](./static/WRRC_CanOfBooks.png)
+![Web Request Response Cycle](./static/WRRC3_CanOfBooks.png)
 
 ## Estimates
 
@@ -75,10 +75,24 @@ Finish time: 6pm
 ```
 
 ```bash
-Name of feature: 
-Estimate of time needed to complete: 
-Start time: 
-Finish time: 
+Name of feature: Add book to database from incoming request of front-end
+Estimate of time needed to complete: 2 hours
+Start time: 3pm
+Finish time: 6pm
+```
+
+```bash
+Name of feature: Delete book in database from incoming request of front-end
+Estimate of time needed to complete: 2 hours
+Start time: 5pm
+Finish time: 8pm
+```
+
+```bash
+Name of feature: Update book in database from incoming request of front-end
+Estimate of time needed to complete: 2
+Start time: 2:30pm
+Finish time: 4pm
 ```
 
 ## Credit and Collaborations
